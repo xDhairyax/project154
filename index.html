@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+    <head>
+
+        <script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/gh/donmccurdy/aframe-extras@v6.1.1/dist/aframe-extras.min.js"></script>
+
+
+        <script src="./components/Rotation.js"></script>
+        <script src="./components/Coins.js"></script>
+      <script src="./components/Fish.js"></script>
+    </head>
+
+    <body>
+        <a-scene>
+
+            <a-entity  
+            camera="active: true"
+            look-controls
+            position="0 10 25">
+            </a-entity>
+
+            <a-assets timeout="10000">
+                
+                <a-assets-item
+                id="diver"
+                src="/assets/diver/scene.gltf"
+                ></a-assets-item>
+
+                <a-assets-item
+                id="islandMap"
+                src="/assets/island/scene.gltf"
+                ></a-assets-item>
+
+                <a-assets-item
+                id="Coins"
+                src="/assets/coins/scene.gltf"
+                ></a-assets-item>
+                
+            </a-assets>
+
+
+            <a-entity
+            id="island"
+            gltf-model="#islandMap"
+            scale="0.5 0.5 0.5"
+          position="0 -15 -80"
+            animation="property: position; to: 0 0 1000;easing:linear; loop: true; dur: 1500000"
+            island-rotation
+            coins
+            fish
+            >
+          </a-entity>
+
+          
+
+          <a-entity
+            id="diver_model"
+            gltf-model="#diver"
+            scale="0.1 0.1 0.1"
+            position="5 0 15"
+            rotation="0 90 -20"   
+            diver-rotation      
+            >
+          </a-entity>
+
+
+        </a-scene>
+    </body>
+
+</html>
